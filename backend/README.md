@@ -1,6 +1,6 @@
-PS C:\Code\POC\poc-ask-file\v1> cd .\server\
-PS C:\Code\POC\poc-ask-file\v1\server> .\.venv\Scripts\activate
-(.venv) PS C:\Code\POC\poc-ask-file\v1\server> uvicorn main:app --host=0.0.0.0 --port=8000 --reload
+codebase root path> cd .\backend\
+codebase root path\backend\> .\.venv\Scripts\activate
+(.venv) codebase root path\backend\> uvicorn main:app --host=0.0.0.0 --port=8000 --reload
 
 uvicorn main:app --host=0.0.0.0 --port=8000 --reload
 
