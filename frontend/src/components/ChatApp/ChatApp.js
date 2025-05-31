@@ -141,7 +141,7 @@ const ChatApp = (props) => {
             </Button>
           </div>
         )}
-        {summary && summary.length && (
+        {summary && summary.length > 0 && (
           <SideBar
             summary={summary}
             isSummaryLoading={isSummaryLoading}

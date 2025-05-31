@@ -45,7 +45,7 @@ export default function SideBar({
     <div className="side-container">
       <div className="summary">
         <div className="summary-container">
-          {Array.isArray(summary) && summary.length ? (
+          {Array.isArray(summary) && summary.length > 0 ? (
             <>
               {summary?.map((section) => (
                 <div>
