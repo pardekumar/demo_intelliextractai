@@ -1,0 +1,103 @@
+.side-container {
+  max-width: 100%;
+  margin: 10px;
+  /* height: 100vh; */
+  background-color: #f9f9f9;
+  overflow: hidden;
+  flex-shrink: 0;
+  border-radius: 5px;
+  border-color: hsla(0, 0%, 100%, 0.2);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* padding: 20px; */
+}
+
+.side-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.side-logo {
+  height: 5vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .side-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.side-profile {
+  margin-bottom: 20px;
+}
+
+.upload {
+  /* margin-left: 10px !important; */
+  margin: 10px !important;
+}
+
+.file-stack {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.summary {
+  height: 100%;
+  padding: 15px 15px;
+  overflow: auto;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.summary-container {
+  height: 100%;
+}
+
+.summary-heading {
+  height: 100%;
+  text-align: left;
+}
+
+.summary-subheading {
+  text-align: left;
+  color: rgb(71, 129, 253);
+}
+
+.summary-loader {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.file {
+  background-image: linear-gradient(
+    to right,
+    rgb(130, 43, 251),
+    rgb(245, 116, 174)
+  );
+  height: 300px;
+  width: 80%;
+  border: none;
+  border-radius: 5px;
+  color: #ffff;
+  text-align: center;
+  margin: 10px;
+  cursor: pointer;
+}
+
+.active-file {
+  background-image: linear-gradient(
+    to right,
+    rgb(149, 248, 142),
+    rgb(9, 146, 48)
+  );
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

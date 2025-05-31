@@ -1,0 +1,134 @@
+.landing-ai {
+  min-height: 125vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #181c2b 0%, #00e6d3 100%);
+  font-family: "Segoe UI", "Roboto", Arial, sans-serif;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+.landing-ai-card,
+.landing-ai-card.professional-theme {
+  background: rgba(30, 34, 54, 0.92);
+  box-shadow: 0 8px 32px 0 rgba(0, 230, 211, 0.13);
+  border-radius: 32px;
+  padding: 56px 40px 44px 40px;
+  text-align: center;
+  max-width: 420px;
+  width: 95vw;
+  backdrop-filter: blur(10px);
+  border: 1.5px solid rgba(0, 230, 211, 0.18);
+  transition: box-shadow 0.2s;
+}
+
+.landing-ai-bot {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  margin-bottom: 18px;
+  border: 2.5px solid #00e6d3;
+  background: #fff;
+  box-shadow: 0 2px 18px rgba(0, 230, 211, 0.13);
+}
+
+.landing-ai-title {
+  font-size: 2.2rem;
+  color: #fff;
+  margin-bottom: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.brand-highlight {
+  color: #00e6d3;
+  background: linear-gradient(90deg, #00e6d3 0%, #009688 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing-ai-subtitle {
+  color: #b2fefa;
+  font-size: 1.15rem;
+  margin-bottom: 26px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+}
+
+.landing-ai-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 28px 0;
+}
+
+.landing-ai-list li {
+  color: #e0f7fa;
+  font-size: 1.08rem;
+  margin-bottom: 13px;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  background: rgba(0, 230, 211, 0.09);
+  border-radius: 8px;
+  padding: 7px 14px;
+  transition: background 0.2s;
+}
+
+.landing-ai-list li:hover {
+  background: rgba(0, 230, 211, 0.18);
+}
+
+.list-icon {
+  font-size: 1.2em;
+  margin-right: 10px;
+  color: #00e6d3;
+}
+
+.landing-ai-hint {
+  margin-top: 22px;
+  color: #fff;
+  font-size: 1.08rem;
+  background: rgba(0, 230, 211, 0.13);
+  padding: 13px 20px;
+  border-radius: 10px;
+  border: 1.5px dashed #00e6d3;
+  display: inline-block;
+  font-weight: 500;
+  box-shadow: 0 2px 12px rgba(0, 230, 211, 0.07);
+}
+
+.hint-action {
+  color: #00e6d3;
+  font-weight: 700;
+}
+
+@media (max-width: 600px) {
+  .landing-ai-card,
+  .landing-ai-card.professional-theme {
+    padding: 24px 8px 18px 8px;
+    max-width: 99vw;
+  }
+  .landing-ai-title {
+    font-size: 1.3rem;
+  }
+  .landing-ai-subtitle {
+    font-size: 1rem;
+  }
+  .landing-ai-list li {
+    font-size: 0.97rem;
+    margin-bottom: 8px;
+    padding: 6px 8px;
+  }
+  .landing-ai-hint {
+    font-size: 0.97rem;
+    padding: 8px 8px;
+  }
+  .landing-ai-bot {
+    width: 54px;
+    height: 54px;
+  }
+}

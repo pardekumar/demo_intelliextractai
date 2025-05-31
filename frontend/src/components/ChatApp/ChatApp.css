@@ -1,0 +1,103 @@
+/* ChatApp.css */
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  border-right: solid 1px #333334;
+}
+
+.chat-messages {
+  flex-grow: 1;
+  flex-direction: column;
+  overflow-y: auto;
+  padding: 20px;
+  display: flex;
+}
+
+.message {
+  text-align: left;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+  font-weight: 500;
+  font-size: 0.875rem;
+}
+
+.user {
+  align-self: flex-end;
+  background-color: #007bff;
+  color: white;
+  border-bottom-right-radius: 0px;
+}
+
+.bot {
+  max-width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  background-color: #f0f0f0;
+  color: black;
+  border-bottom-left-radius: 0px;
+}
+
+.assistant {
+  width: 80px;
+  transition: width 1s, height 1s;
+  transition-delay: 2s;
+}
+
+.assistant-text {
+  font-weight: 500;
+  font-size: 0.875rem;
+  background-color: #f0f0f0;
+  color: black;
+  border-radius: 8px;
+  border-bottom-left-radius: 0px;
+  /* margin-bottom: 10px; */
+  padding: 10px;
+}
+
+.summary-button {
+  display: flex;
+}
+
+.citation {
+  align-self: flex-end;
+  margin: 5px !important;
+}
+
+.chat-input {
+  display: flex;
+  /* align-items: center; */
+  flex-direction: column;
+  padding: 10px;
+}
+
+.chat-input input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-right: 10px;
+}
+
+.chat-input button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+.chat-input button:hover {
+  background-color: #0056b3;
+}
+
+.MuiBox-root {
+  border: none !important;
+  border-radius: 10px;
+  width: 45% !important;
+  padding-left: 2% !important;
+}
