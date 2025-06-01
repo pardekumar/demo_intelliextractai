@@ -90,6 +90,64 @@ export default function SideBar({
             </div>
           </div>
         )} */}
+        {/* Export Button */}
+        {Array.isArray(summary) &&
+          summary.length > 0 &&
+          !isSummaryGenerating && (
+            <div
+              style={{
+                position: "absolute",
+                right: "16px",
+                top: "16px",
+                textAlign: "center",
+              }}
+            >
+              <button
+                onClick={async () => {
+                  try {
+                    const response = await fetch(
+                      `${process.env.REACT_APP_API_URL}/documents/export-csv/`,
+                      {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify(
+                          summary.map((section) => ({
+                            title: section.title || "",
+                            content: section.response
+                              ? section.response.result
+                              : "",
+                          }))
+                        ),
+                      }
+                    );
+                    if (!response.ok) throw new Error("Failed to export CSV");
+                    const blob = await response.blob();
+                    const url = window.URL.createObjectURL(blob);
+                    const a = document.createElement("a");
+                    a.href = url;
+                    a.download = "export.csv";
+                    document.body.appendChild(a);
+                    a.click();
+                    a.remove();
+                    window.URL.revokeObjectURL(url);
+                  } catch (err) {
+                    alert("Failed to export CSV");
+                  }
+                }}
+                style={{
+                  padding: "8px 16px",
+                  background: "#1976d2",
+                  color: "#fff",
+                  border: "none",
+                  borderRadius: 4,
+                  cursor: "pointer",
+                  fontWeight: 600,
+                }}
+              >
+                Export as CSV
+              </button>
+            </div>
+          )}
       </div>
     </div>
   );

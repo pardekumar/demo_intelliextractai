@@ -1,10 +1,14 @@
-from fastapi import APIRouter, Depends, HTTPException, File, UploadFile
+from fastapi import APIRouter, Depends, HTTPException, File, UploadFile, Request
 from fastapi.responses import StreamingResponse
-from typing import Annotated
+# from utils.csv_export import dict_to_csv_stream
+from typing import Annotated, Union
 from config import Paths
 from glob import glob
 from pydantic import BaseModel
 import base64
+import csv
+import io
+from typing import Dict, Any, Iterable
 
 from dependencies import get_token_header
 from llm.ingestion.ingestion import data_ingestion
@@ -159,6 +163,41 @@ async def stream_summary(params: Summary):
     except Exception as e:
         print(e)
         return {"status": "error", "message": "There was an error streaming the summary"}
+
+
+@router.post("/export-csv/")
+async def export_csv(request: Request):
+    """
+    Exports the provided dictionary or list of dictionaries as a downloadable CSV file.
+    Accepts any valid JSON body (list or dict).
+    """
+    data = await request.json()
+    print("data", data)
+    return StreamingResponse(
+        dict_to_csv_stream(data),
+        media_type="text/csv",
+        headers={"Content-Disposition": "attachment; filename=export.csv"}
+    )
+
+
+def dict_to_csv_stream(data: Union[Dict[str, Any], list]) -> Iterable[bytes]:
+    output = io.StringIO()
+    # If data is a list of dicts
+    if isinstance(data, list) and data and isinstance(data[0], dict):
+        writer = csv.DictWriter(output, fieldnames=data[0].keys())
+        writer.writeheader()
+        for row in data:
+            writer.writerow(row)
+    # If data is a single dict
+    elif isinstance(data, dict):
+        writer = csv.DictWriter(output, fieldnames=data.keys())
+        writer.writeheader()
+        writer.writerow(data)
+    else:
+        output.write("Unsupported data format for CSV export.\n")
+    output.seek(0)
+    for line in output:
+        yield line.encode('utf-8')
 
 
 # @router.get("/getchromadb/")
